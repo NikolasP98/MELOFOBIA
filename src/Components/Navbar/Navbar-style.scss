@@ -1,0 +1,63 @@
+.list{
+  background-color: #686767;
+  width: 250px;
+  height: 100%;
+  display:flex;
+  justify-content:flex-end;
+  padding-right: 10px;
+
+  .list-container{
+  width:80%;
+    .list-item{
+      display: flex;
+      justify-content: flex-end;
+      padding-bottom: 0;
+      &:hover{
+        background-color: transparent!important;
+      }
+        .list-item-text{
+            transition: background-color 0.5s;
+          text-align: right;
+          margin:0;
+          .MuiTypography-body1{
+            font-size: 20px!important;
+          }
+
+          &:first-child{
+            padding: 5px;
+            font-weight: bold;
+            color:white;
+
+            &:hover{
+              background-color: #E71D36;
+            }
+          }
+        }
+    }
+  }
+
+}
+
+.root{
+  display:flex;
+  background-color: black;
+
+  .title{
+    width:10%;
+  }
+
+  .flex-container{
+    display:flex;
+    flex-grow:1;
+    justify-content: flex-end;
+
+    .menu-logo{
+      align-self: flex-center;
+    }
+  }
+
+}
+
+.drawer{
+  background-color: #8C8C8C;
+}
