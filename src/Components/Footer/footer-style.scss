@@ -1,0 +1,29 @@
+.footer{
+  height:50px;
+  margin-top: 200px;
+  display: grid;
+  grid-template-columns: 100px 100px  200px;
+  background-color: black;
+  color:white;
+  justify-content: space-between;
+align-content: space-between;
+
+  .item{
+    text-align: center;
+    height:50px;
+
+    .subscribe{
+      background-color: white;
+      color:red;
+    }
+  }
+  .secondary-item{
+    display: grid;
+    grid-template-columns: 20px 170px;
+  }
+
+  .logo{
+    width:40%;
+    vertical-align:middle;
+  }
+}
