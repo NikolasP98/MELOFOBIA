@@ -1,0 +1,42 @@
+.container{
+display:flex;
+
+  .edit{
+    font-family: 'Source Sans Pro', sans-serif;
+  }
+
+  .paper{
+    padding:10px;
+    width:1300px;
+    overflow-y:auto;
+    height:800px;
+    max-height:800px;
+
+    &:-webkit-scrollbar{
+  display: none;
+      }
+  }
+
+  .right-pane{
+    width:100px;
+    height:100%;
+    background-color: #686767;
+  }
+
+  .flex-item{
+    margin-right: 20px;
+height:100%;
+    .btn{
+      width:100px;
+      height:100px;
+      background-color: black;
+      border-radius: 0;
+      color: white;
+
+      &:hover{
+        background-color: white;
+        color:black;
+      }
+    }
+  }
+}
