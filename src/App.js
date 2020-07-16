@@ -14,7 +14,7 @@ function App() {
     <CssBaseline/>
     <div>
       <Navbar/>
-      <Article/>
+      <Editor/>
       <Footer/>
     </div>
     </MuiThemeProvider>
