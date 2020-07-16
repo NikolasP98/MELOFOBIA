@@ -7,20 +7,32 @@ display:flex;
 
   .paper{
     padding:10px;
-    width:1300px;
+    width:1000px;
     overflow-y:auto;
     height:800px;
     max-height:800px;
+    box-shadow: 10px 0 15px grey;
 
     &:-webkit-scrollbar{
   display: none;
       }
   }
 
-  .right-pane{
+  .left-pane{
     width:100px;
     height:100%;
     background-color: #686767;
+  }
+
+  .right-pane{
+    // box-shadow: 10px 0 15px grey;
+    padding-top: 10px;
+    width:380px;
+
+    .uri-text{
+      width: 80%;
+      margin: 10px;
+    }
   }
 
   .flex-item{
@@ -29,9 +41,7 @@ height:100%;
     .btn{
       width:100px;
       height:100px;
-      background-color: black;
       border-radius: 0;
-      color: white;
 
       &:hover{
         background-color: white;

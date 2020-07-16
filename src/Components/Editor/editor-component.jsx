@@ -2,12 +2,13 @@
 
 
 import React,{ useEffect, useMemo, useState,useCallback } from 'react';
-import {IconButton,Button} from '@material-ui/core';
+import {IconButton,Button,TextField} from '@material-ui/core';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import FormatBoldIcon from '@material-ui/icons/FormatBold';
 import FormatItalicIcon from '@material-ui/icons/FormatItalic';
 import {Slate, Editable, withReact} from 'slate-react';
 import {createEditor,Transforms, Editor, Text} from 'slate';
+import SpotifyPlayer from 'react-spotify-player';
 import './editor-style.scss';
 
 const CodeElement = props => {
@@ -92,6 +93,10 @@ const CustomEditor = {
 
 function TextEditor(){
   const [fontSize, setFontSize] = useState('28');
+  const [codeBlock,setCodeBlock] = useState(false);
+  const [bold,setBold] = useState(false);
+  const [italic,setItalic] = useState(false);
+  const[uri,setUri] = useState('');
   const editor = useMemo(() => withReact(createEditor()), []);
   const [value, setValue] = useState([
     {
@@ -114,6 +119,7 @@ function TextEditor(){
               // When "`" is pressed, keep our existing code block logic.
               case '`': {
                 event.preventDefault()
+              setCodeBlock(!codeBlock);
              CustomEditor.toggleCodeBlock(editor)
              break
               }
@@ -121,12 +127,14 @@ function TextEditor(){
               // When "B" is pressed, bold the text in the selection.
               case 'b': {
                 event.preventDefault()
+                setBold(!bold);
                  CustomEditor.toggleBoldMark(editor)
                  break
            }
 
            case 'i': {
           event.preventDefault()
+          setItalic(!italic);
            CustomEditor.toggleItalicMark(editor)
            break
           // Transforms.setNodes(
@@ -154,17 +162,26 @@ function TextEditor(){
   return <Leaf {...props} fontSize={fontSize}/>
 }, [])
 
+const size = {
+width: '100%',
+height: 300,
+};
+const view = 'coverart'; // or 'coverart'
+const theme = 'black'; // or 'white'
+
   return (
     <Slate editor={editor} value={value} onChange={newValue => setValue(newValue)}>
     <div className='container'>
-    <div className='right-pane flex-item'>
+    <div className='left-pane flex-item'>
         <IconButton className='btn'>
           <ArrowBackIosIcon/>
         </IconButton>
         <IconButton
         className='btn'
+        style={{color:bold?'black':'white',backgroundColor:bold?'white':'black'}}
           onMouseDown={event => {
             event.preventDefault()
+            setBold(!bold);
             CustomEditor.toggleBoldMark(editor)
           }}
         >
@@ -172,8 +189,10 @@ function TextEditor(){
         </IconButton>
         <IconButton
         className='btn'
+        style={{color:italic?'black':'white',backgroundColor:italic?'white':'black'}}
           onMouseDown={event => {
             event.preventDefault()
+            setItalic(!italic);
             CustomEditor.toggleItalicMark(editor)
           }}
         >
@@ -181,9 +200,10 @@ function TextEditor(){
         </IconButton>
         <Button
         className='btn'
-        style={{fontSize:'20px'}}
+        style={{fontSize:'20px',color:codeBlock?'black':'white',backgroundColor:codeBlock?'white':'black'}}
           onMouseDown={event => {
             event.preventDefault()
+            setCodeBlock(!codeBlock);
             CustomEditor.toggleCodeBlock(editor)
           }}
         >
@@ -199,6 +219,16 @@ function TextEditor(){
        />
        </div>
        </div>
+
+      <div className='right-pane'>
+      <TextField variant='outlined' label='Share your desired spotify playlist uri' value={uri} onChange={e => setUri(e.target.value)} className='uri-text'/>
+<SpotifyPlayer
+uri={uri}
+size={size}
+view={view}
+theme={theme}
+/>
+      </div>
       </div>
     </Slate>
  );
