@@ -13,6 +13,7 @@
 
 //Article class
 .articles {
+    margin-top: 6rem;
     //Back button not show in small screen
     .back-btn{
         display: none;
@@ -186,6 +187,7 @@
                     flex-direction: column;
                     justify-content: center;
                     align-items: center;
+                    position: fixed;
                     .img-number{
                         text-align: end;
                         font-size: 1.4rem;
@@ -247,7 +249,7 @@
             }
 
             .article-main {
-                padding: 0 3rem;
+                padding: 0 7rem 0 7rem;
                 .btn-play-list {
                     display: flex;
                 }
@@ -273,7 +275,7 @@
 
             .discussion-playlist {
                 width: 100%;
-                padding: 0 3rem;
+                padding: 0 7rem 0 7rem;
                 display: flex;
                 flex-direction: column-reverse;
 

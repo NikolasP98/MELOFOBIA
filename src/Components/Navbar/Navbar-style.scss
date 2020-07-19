@@ -5,7 +5,6 @@
   display:flex;
   justify-content:flex-end;
   padding-right: 10px;
-
   .list-container{
   width:80%;
     .list-item{
@@ -41,9 +40,12 @@
 .root{
   display:flex;
   background-color: black;
-
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10000;
   .title{
-    width:10%;
+    width:110px;
   }
 
   .flex-container{
