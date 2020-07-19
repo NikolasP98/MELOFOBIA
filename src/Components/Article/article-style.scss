@@ -247,6 +247,7 @@
             }
 
             .article-main {
+                padding: 0 3rem;
                 .btn-play-list {
                     display: flex;
                 }
@@ -272,7 +273,7 @@
 
             .discussion-playlist {
                 width: 100%;
-                padding: 0 2rem;
+                padding: 0 3rem;
                 display: flex;
                 flex-direction: column-reverse;
 
