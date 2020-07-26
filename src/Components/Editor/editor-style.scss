@@ -30,8 +30,21 @@ display:flex;
     width:380px;
 
     .uri-text{
-      width: 80%;
+      width: 95%;
       margin: 10px;
+    }
+
+    .save-btn{
+      width: 100%;
+      padding: 10px;
+      border: 1.5px solid black;
+      color:black;
+      transition: 1s;
+
+      &:hover{
+        background-color: black;
+        color:white;
+      }
     }
   }
 

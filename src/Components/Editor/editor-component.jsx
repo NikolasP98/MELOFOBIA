@@ -6,9 +6,11 @@ import {IconButton,Button,TextField} from '@material-ui/core';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import FormatBoldIcon from '@material-ui/icons/FormatBold';
 import FormatItalicIcon from '@material-ui/icons/FormatItalic';
+//import InsertImages from 'slate-drop-or-paste-images'
 import {Slate, Editable, withReact} from 'slate-react';
 import {createEditor,Transforms, Editor, Text} from 'slate';
 import SpotifyPlayer from 'react-spotify-player';
+import SaveIcon from '@material-ui/icons/Save';
 import './editor-style.scss';
 
 const CodeElement = props => {
@@ -35,6 +37,19 @@ const Leaf = props => {
     </span>
   )
 }
+// 
+// const plugins = [
+//   InsertImages({
+//     extensions: ['png','jpg'],
+//     insertImage: (change, file) => {
+//       return change.insertBlock({
+//         type: 'image',
+//         isVoid: true,
+//         data: { file }
+//       })
+//     }
+//   })
+// ]
 
 
 const CustomEditor = {
@@ -153,6 +168,8 @@ function TextEditor(){
    switch (props.element.type) {
      case 'code':
        return <CodeElement {...props} />
+    case 'img':
+      return <img {...props} />
      default:
        return <DefaultElement {...props} />
    }
@@ -170,7 +187,7 @@ const view = 'coverart'; // or 'coverart'
 const theme = 'black'; // or 'white'
 
   return (
-    <Slate editor={editor} value={value} onChange={newValue => setValue(newValue)}>
+    <Slate editor={editor} value={value} onChange={newValue => setValue(newValue)} >
     <div className='container'>
     <div className='left-pane flex-item'>
         <IconButton className='btn'>
@@ -228,6 +245,9 @@ size={size}
 view={view}
 theme={theme}
 />
+<br/>
+<br/>
+  <Button variant='outlined' startIcon={<SaveIcon style={{color:'red'}}/>} className='save-btn'>Save</Button>
       </div>
       </div>
     </Slate>
