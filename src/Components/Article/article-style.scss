@@ -14,12 +14,14 @@
 //Article class
 .articles {
     margin-top: 6rem;
+
     //Back button not show in small screen
-    .back-btn{
+    .back-btn {
         display: none;
     }
+
     //Sidebar not show in small screen
-    .side-bar{
+    .side-bar {
         display: none;
     }
 
@@ -52,6 +54,7 @@
                 font-size: 2.6rem;
                 margin-bottom: 0;
             }
+
             //Author, date
             p {
                 color: #8C8C8C;
@@ -62,9 +65,11 @@
         }
 
         .article-main-main {
+
             //Article link of each part
             .article-link {
                 margin-bottom: 3rem;
+
                 .article-link-picture {
                     width: 100%;
                     height: 33rem;
@@ -134,6 +139,7 @@
             span {
                 display: flex;
                 cursor: pointer;
+
                 svg {
                     fill: #8C8C8C;
                 }
@@ -175,52 +181,59 @@
 
         .main {
             display: grid;
-            grid-template-columns: 1fr 2fr;
+            grid-template-columns: 1fr 3fr;
 
             .side-bar {
                 display: block;
                 margin-left: 4rem;
                 margin-top: 4rem;
                 position: relative;
-                .side-bar-head{
+
+                .side-bar-head {
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
                     align-items: center;
                     position: fixed;
-                    .img-number{
+                    width: 20%;
+                    .img-number {
                         text-align: end;
                         font-size: 1.4rem;
-                        p{
+
+                        p {
                             margin-bottom: 0;
                             color: #8C8C8C;
                         }
                     }
-                    .side-bar-slider{
+
+                    .side-bar-slider {
                         //position: absolute;
                         //top: 21rem;
                         //margin: 4rem;
                         display: flex;
                         justify-content: center;
                         align-items: center;
-                        .left-arrow{
+
+                        .left-arrow {
                             margin-right: 1rem;
                         }
-                        
-                        .right-arrow{
+
+                        .right-arrow {
                             margin-left: 1rem;
                         }
-                        div{
+
+                        div {
                             display: flex;
                             justify-content: center;
                             align-items: center;
 
-                            .img-sm{
+                            .img-sm {
                                 width: 3rem;
                                 height: 4rem;
                                 background-color: green;
                             }
-                            .active{
+
+                            .active {
                                 height: 5rem;
                                 width: 5rem;
                             }
@@ -228,69 +241,92 @@
 
                     }
                 }
-                .article-link-picture {
-                    width: 24rem;
-                    height: 24rem;
-                    background-color: green;
-                    position: relative;
-                    margin-bottom: 1rem;
-                    
-                    //position: absolute;
-                    .zoom-out{
-                        position: absolute;
-                        bottom: 0;
-                        right: 0;
-                        margin: 2rem;
-                        svg{
-                            fill: white
-                        }
-                    }
-                }
-            }
-
-            .article-main {
-                padding: 0 7rem 0 7rem;
-                .btn-play-list {
-                    display: flex;
-                }
-
-                .article-main-title {
-                    h1 {
-                        font-size: 6rem;
-                    }
-
-                    div {
-                        display: flex;
-
-                        p:first-child {
-                            margin-right: 1rem;
+                .article-link-main{
+                    width: 100%;
+                    .article-link-picture {
+                        width: 100%;
+                        height: 18rem;
+                        background-color: green;
+                        position: relative;
+                        margin-bottom: 1rem;
+    
+                        //position: absolute;
+                        .zoom-out {
+                            position: absolute;
+                            bottom: 0;
+                            right: 0;
+                            margin: 2rem;
+    
+                            svg {
+                                fill: white
+                            }
                         }
                     }
                 }
 
-                .article-main-main .article-link .article-link-picture {
-                    display: none;
-                }
             }
 
-            .discussion-playlist {
-                width: 100%;
-                padding: 0 7rem 0 7rem;
+            .article-right {
                 display: flex;
-                flex-direction: column-reverse;
+                flex-direction: column;
+                justify-content: center;
+                padding: 0 7rem;
+                .article-main {
+                    .btn-play-list {
+                        display: flex;
+                    }
 
-                .discussion {
-                    span {
+                    .article-main-title {
+                        h1 {
+                            font-size: 6rem;
+                        }
+
+                        div {
+                            display: flex;
+
+                            p:first-child {
+                                margin-right: 1rem;
+                            }
+                        }
+                    }
+
+                    .article-main-main .article-link .article-link-picture {
                         display: none;
                     }
+                }
 
-                    .discussion-desktop {
-                        display: block;
-                        border: 2px solid black;
-                        height: 30rem;
+                .discussion-playlist {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column-reverse;
+
+                    .discussion {
+                        span {
+                            display: none;
+                        }
+
+                        .discussion-desktop {
+                            display: block;
+                            border: 2px solid black;
+                            height: 30rem;
+                        }
                     }
                 }
             }
+
         }
+    }
+}
+
+@media only screen and (min-width: 1280px) {
+    .articles .main .side-bar .article-link-main .article-link-picture{
+        height: 18rem;
+    }
+}
+
+
+@media only screen and (min-width: 1760px) {
+    .articles .main .side-bar .article-link-main .article-link-picture{
+        height: 24rem;
     }
 }
