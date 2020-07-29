@@ -6,6 +6,7 @@ import Footer from './Components/Footer/footer-component';
 import { MuiThemeProvider, createMuiTheme, CssBaseline } from '@material-ui/core';
 import Editor from './Components/Editor/editor-component';
 import Article from './Components/Article/article-component';
+import Signup from './Components/Signup/Signup-component';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 const theme = createMuiTheme();
@@ -19,6 +20,7 @@ function App() {
           <Switch>
             <Route path='/editor' exact component={ Editor } />
             <Route path='/article' exact component={ Article } />
+            <Route path='/signup' exact component={ Signup } />
           </Switch>
           <Footer />
         </div>
