@@ -12,20 +12,24 @@ function Signup() {
                     <h1>register</h1>
                     <div className="form-main">
                         <div className="input-div">
-                            <label for="username">username:</label>
-                            <input type="text" placeholder="username" id="username" name="username" />
+                            <label htmlFor="username">username:</label>
+                            <input type="text" placeholder="username" id="username" name="username" required={true}/>
+                            <div></div>
                         </div>
                         <div className="input-div">
-                            <label for="email">email:</label>
-                            <input type="email" placeholder="email" id="email" name="email" />
+                            <label htmlFor="email">email:</label>
+                            <input type="email" placeholder="email" id="email" name="email" required={true}/>
+                            <div></div>
                         </div>
                         <div className="input-div">
-                            <label for="password">password:</label>
-                            <input type="password" placeholder="password" name="password" />
+                            <label htmlFor="password">password:</label>
+                            <input type="password" placeholder="password" name="password" required={true}/>
+                            <div></div>
                         </div>
                         <div className="input-div">
-                            <label for="confirm">confirm:</label>
-                            <input type="password" placeholder="confirm" />
+                            <label htmlFor="confirm">confirm:</label>
+                            <input type="password" placeholder="confirm" required={true}/>
+                            <div></div>
                         </div>
                     </div>
                     <button type="submit">Register</button>
