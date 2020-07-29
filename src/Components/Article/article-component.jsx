@@ -14,7 +14,7 @@ function Article() {
             <div className="main">
                 <div className="side-bar">
                     <div className="side-bar-head">
-                        <div>
+                        <div className="article-link-main">
                             <div className="img-number">
                                 <p>2/3</p>
                             </div>
@@ -58,7 +58,7 @@ function Article() {
                         </div>
                     </div>
                 </div>
-                <div>
+                <div className="article-right">
                     <div className="article-main">
                         <div className="article-main-title">
                             <h1>ARTICLE TITLE</h1>
