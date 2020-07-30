@@ -12,6 +12,10 @@ import {createEditor,Transforms, Editor, Text} from 'slate';
 import SpotifyPlayer from 'react-spotify-player';
 import SaveIcon from '@material-ui/icons/Save';
 import './editor-style.scss';
+import EditorJS from '@editorjs/editorjs';
+import Header from '@editorjs/header';
+import List from '@editorjs/list';
+import Embed from '@editorjs/embed';
 
 const CodeElement = props => {
   return (
@@ -37,7 +41,7 @@ const Leaf = props => {
     </span>
   )
 }
-// 
+//
 // const plugins = [
 //   InsertImages({
 //     extensions: ['png','jpg'],
@@ -50,6 +54,9 @@ const Leaf = props => {
 //     }
 //   })
 // ]
+
+
+
 
 
 const CustomEditor = {
@@ -105,6 +112,90 @@ const CustomEditor = {
     )
   },
 }
+
+
+class SimpleImage {
+  static get toolbox() {
+      return {
+        title: 'Image',
+        icon: '<svg width="17" height="15" viewBox="0 0 336 276" xmlns="http://www.w3.org/2000/svg"><path d="M291 150V79c0-19-15-34-34-34H79c-19 0-34 15-34 34v42l67-44 81 72 56-29 42 30zm0 52l-43-30-56 30-81-67-66 39v23c0 19 15 34 34 34h178c17 0 31-13 34-29zM79 0h178c44 0 79 35 79 79v118c0 44-35 79-79 79H79c-44 0-79-35-79-79V79C0 35 35 0 79 0z"/></svg>'
+      };
+    }
+
+    constructor({data}){
+   this.data = data;
+ }
+
+  render(){
+    this.wrapper = document.createElement('div');
+     const input = document.createElement('input');
+
+     this.wrapper.classList.add('simple-image');
+     this.wrapper.appendChild(input);
+
+     input.placeholder = 'Paste an image URL...';
+     input.value = this.data && this.data.url ? this.data.url : '';
+
+     input.addEventListener('paste', (event) => {
+       this._createImage(event.clipboardData.getData('text'));
+     });
+
+     return this.wrapper;
+  }
+
+  _createImage(url){
+   const image = document.createElement('img');
+   const caption = document.createElement('input');
+
+   image.src = url;
+   caption.placeholder = 'Caption...';
+
+   this.wrapper.innerHTML = '';
+   this.wrapper.appendChild(image);
+   this.wrapper.appendChild(caption);
+ }
+
+  save(blockContent){
+    const image = blockContent.querySelector('img');
+      const caption = blockContent.querySelector('input');
+
+      return {
+        url: image.src,
+        caption: caption.value
+      }
+  }
+}
+
+const editor = new EditorJS({
+  /**
+   * Id of Element that should contain Editor instance
+   */
+  holder: 'editorjs',
+   tools: {
+   header: {
+     class: Header,
+     inlineToolbar : ['link']
+   },
+   image: SimpleImage,
+   list: {
+     class: List,
+     inlineToolbar : ['link','bold']
+   },
+   embed: {
+     class: Embed,
+     inlineToolbar : false,
+     config:{
+       youtube:true
+     }
+   }
+
+},
+ autofocus: true,
+ placeholder: 'Let`s write an awesome story!'
+});
+
+
+
 
 function TextEditor(){
   const [fontSize, setFontSize] = useState('28');
@@ -190,50 +281,14 @@ const theme = 'black'; // or 'white'
     <Slate editor={editor} value={value} onChange={newValue => setValue(newValue)} >
     <div className='container'>
     <div className='left-pane flex-item'>
-        <IconButton className='btn'>
+        <IconButton className='btn' boxShadow={3}>
           <ArrowBackIosIcon/>
         </IconButton>
-        <IconButton
-        className='btn'
-        style={{color:bold?'black':'white',backgroundColor:bold?'white':'black'}}
-          onMouseDown={event => {
-            event.preventDefault()
-            setBold(!bold);
-            CustomEditor.toggleBoldMark(editor)
-          }}
-        >
-          <FormatBoldIcon/>
-        </IconButton>
-        <IconButton
-        className='btn'
-        style={{color:italic?'black':'white',backgroundColor:italic?'white':'black'}}
-          onMouseDown={event => {
-            event.preventDefault()
-            setItalic(!italic);
-            CustomEditor.toggleItalicMark(editor)
-          }}
-        >
-          <FormatItalicIcon/>
-        </IconButton>
-        <Button
-        className='btn'
-        style={{fontSize:'20px',color:codeBlock?'black':'white',backgroundColor:codeBlock?'white':'black'}}
-          onMouseDown={event => {
-            event.preventDefault()
-            setCodeBlock(!codeBlock);
-            CustomEditor.toggleCodeBlock(editor)
-          }}
-        >
-          C
-        </Button>
+
       </div>
       <div className='editor-container'>
-      <div className='paper flex-item'>
-      <Editable
-      onKeyDown={onKeyChange}
-        renderElement={renderElement}
-        renderLeaf={renderLeaf}
-       />
+      <div className='paper flex-item' id="editorjs">
+
        </div>
        </div>
 
@@ -256,3 +311,44 @@ theme={theme}
 }
 
 export default TextEditor;
+
+// <IconButton
+// className='btn'
+// style={{color:bold?'black':'white',backgroundColor:bold?'white':'black'}}
+//   onMouseDown={event => {
+//     event.preventDefault()
+//     setBold(!bold);
+//     CustomEditor.toggleBoldMark(editor)
+//   }}
+// >
+//   <FormatBoldIcon/>
+// </IconButton>
+// <IconButton
+// className='btn'
+// style={{color:italic?'black':'white',backgroundColor:italic?'white':'black'}}
+//   onMouseDown={event => {
+//     event.preventDefault()
+//     setItalic(!italic);
+//     CustomEditor.toggleItalicMark(editor)
+//   }}
+// >
+//   <FormatItalicIcon/>
+// </IconButton>
+// <Button
+// className='btn'
+// style={{fontSize:'20px',color:codeBlock?'black':'white',backgroundColor:codeBlock?'white':'black'}}
+//   onMouseDown={event => {
+//     event.preventDefault()
+//     setCodeBlock(!codeBlock);
+//     CustomEditor.toggleCodeBlock(editor)
+//   }}
+// >
+//   C
+// </Button>
+
+
+// <Editable
+// onKeyDown={onKeyChange}
+//   renderElement={renderElement}
+//   renderLeaf={renderLeaf}
+//  />
