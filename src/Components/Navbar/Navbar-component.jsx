@@ -18,8 +18,8 @@ function Navbar() {
           <Toolbar className='root'>
             <img src={logo} className='title' />
             <div className='flex-container'>
-              <IconButton className='menu-logo' onClick={() => setOpen(true)} color="inherit" aria-label="menu">
-                <MenuIcon />
+              <IconButton className='menu-logo' onClick={() => setOpen(!open)} color="inherit" aria-label="menu">
+                {open?<CloseIcon/>:<MenuIcon />}
               </IconButton>
             </div>
           </Toolbar>

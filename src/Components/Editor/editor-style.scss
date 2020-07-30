@@ -1,5 +1,6 @@
 .container{
 display:flex;
+margin-top: 100px;
 
   .edit{
     font-family: 'Source Sans Pro', sans-serif;
@@ -21,7 +22,7 @@ display:flex;
   .left-pane{
     width:100px;
     height:100%;
-    background-color: #686767;
+    text-align: center;
   }
 
   .right-pane{
@@ -30,8 +31,21 @@ display:flex;
     width:380px;
 
     .uri-text{
-      width: 80%;
+      width: 95%;
       margin: 10px;
+    }
+
+    .save-btn{
+      width: 100%;
+      padding: 10px;
+      border: 1.5px solid black;
+      color:black;
+      transition: 1s;
+
+      &:hover{
+        background-color: black;
+        color:white;
+      }
     }
   }
 
@@ -39,14 +53,19 @@ display:flex;
     margin-right: 20px;
 height:100%;
     .btn{
-      width:100px;
-      height:100px;
-      border-radius: 0;
+      width:80px;
+      height:80px;
+      border-radius: 100%;
+      background-color: black;
+      padding-left: 20px!important;
+      //box-shadow: 5px 5px 10px black;
+      color: white;
 
-      &:hover{
-        background-color: white;
-        color:black;
-      }
+
+      // &:hover{
+      //   background-color: white;
+      //   color:black;
+      // }
     }
   }
 }
