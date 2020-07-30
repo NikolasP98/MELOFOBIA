@@ -59,7 +59,7 @@ function App() {
             <Route path='/editor' exact component={ Editor } />
             <Route path='/article' exact component={ Article } />
             <Route path='/login' exact component={ Login } />
-            <Route path='/signup' exact component={ Login } />
+            <Route path='/signup' exact component={ Signup } />
           </Switch>
           <Footer />
         </div>
