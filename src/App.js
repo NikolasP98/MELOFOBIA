@@ -19,7 +19,6 @@ function App() {
           <Switch>
             <Route path='/editor' exact component={ Editor } />
             <Route path='/article' exact component={ Article } />
-            <Route path='/signup' exact component={ Signup } />
           </Switch>
           <Footer />
         </div>
