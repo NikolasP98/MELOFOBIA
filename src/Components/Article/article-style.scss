@@ -1,332 +1,325 @@
 .btn {
-    border: 0;
-    border-radius: 1.75rem;
-    padding: 0.5rem 1rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  border: 0;
+  border-radius: 1.75rem;
+  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    svg {
-        margin-right: 0.25rem;
-    }
+  svg {
+    margin-right: 0.25rem;
+  }
 }
 
 //Article class
 .articles {
-    margin-top: 6rem;
+  margin-top: 6rem;
 
-    //Back button not show in small screen
-    .back-btn {
-        display: none;
+  //Back button not show in small screen
+  .back-btn {
+    display: none;
+  }
+
+  //Sidebar not show in small screen
+  .side-bar {
+    display: none;
+  }
+
+  //Article word
+  .article-first {
+    margin-top: 2rem;
+    text-align: center;
+    color: #8c8c8c;
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  //Main part of the article
+  .article-main {
+    padding: 0 2rem;
+    margin-top: 1rem;
+
+    //Play list button ( not show in small screen )
+    .btn-play-list {
+      background-color: #e71d36;
+      cursor: pointer;
+      color: white;
+      display: none;
     }
 
-    //Sidebar not show in small screen
-    .side-bar {
-        display: none;
-    }
-
-    //Article word
-    .article-first {
-        margin-top: 2rem;
-        text-align: center;
-        color: #8C8C8C;
-        font-size: 16px;
+    //Title of the article
+    .article-main-title {
+      h1 {
         font-weight: 600;
+        font-size: 2.6rem;
+        margin-bottom: 0;
+      }
+
+      //Author, date
+      p {
+        color: #8c8c8c;
+        margin-top: 0.5rem;
+        margin-bottom: 2rem;
+        font-size: 13px;
+      }
     }
 
-    //Main part of the article
-    .article-main {
-        padding: 0 2rem;
-        margin-top: 1rem;
+    .article-main-main {
+      //Article link of each part
+      .article-link {
+        margin-bottom: 3rem;
 
-        //Play list button ( not show in small screen )
-        .btn-play-list {
-            background-color: #E71D36;
+        .article-link-picture {
+          width: 100%;
+          height: 33rem;
+          background-color: green;
+          position: relative;
+          margin-bottom: 1rem;
+
+          .zoom-out {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            margin: 2rem;
+
+            svg {
+              fill: #ffffff;
+              cursor: pointer;
+            }
+          }
+        }
+
+        .article-link-content {
+          font-size: 20px;
+          font-weight: 400;
+          text-align: justify;
+          color: #4a4a4a;
+        }
+      }
+    }
+
+    .article-like {
+      p {
+        display: flex;
+        align-items: center;
+        font-size: large;
+        color: #8c8c8c;
+
+        span {
+          display: flex;
+          margin-right: 0.5rem;
+
+          svg {
+            fill: #000000;
             cursor: pointer;
-            color: white;
-            display: none;
+          }
         }
+      }
+    }
+  }
 
-        //Title of the article
-        .article-main-title {
-            h1 {
-                font-weight: 600;
-                font-size: 2.6rem;
-                margin-bottom: 0;
-            }
+  .discussion,
+  .playlist {
+    text-align: center;
+  }
 
-            //Author, date
-            p {
-                color: #8C8C8C;
-                margin-top: 0.5rem;
-                margin-bottom: 2rem;
-                font-size: 13px;
-            }
+  .discussion {
+    font-weight: 600;
+    margin-bottom: 4rem;
+    font-size: 2rem;
+
+    p {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      span {
+        display: flex;
+        cursor: pointer;
+
+        svg {
+          fill: #8c8c8c;
         }
-
-        .article-main-main {
-
-            //Article link of each part
-            .article-link {
-                margin-bottom: 3rem;
-
-                .article-link-picture {
-                    width: 100%;
-                    height: 33rem;
-                    background-color: green;
-                    position: relative;
-                    margin-bottom: 1rem;
-
-                    .zoom-out {
-                        position: absolute;
-                        bottom: 0;
-                        right: 0;
-                        margin: 2rem;
-
-                        svg {
-                            fill: #FFFFFF;
-                            cursor: pointer;
-                        }
-                    }
-                }
-
-                .article-link-content {
-                    font-size: 20px;
-                    font-weight: 400;
-                    text-align: justify;
-                    color: #4A4A4A;
-                    ;
-                }
-            }
-        }
-
-        .article-like {
-            p {
-                display: flex;
-                align-items: center;
-                font-size: large;
-                color: #8C8C8C;
-
-                span {
-                    display: flex;
-                    margin-right: 0.5rem;
-
-                    svg {
-                        fill: #000000;
-                        cursor: pointer;
-                    }
-                }
-
-            }
-        }
+      }
     }
 
-    .discussion,
-    .playlist {
-        text-align: center;
+    .discussion-desktop {
+      display: none;
+    }
+  }
+
+  .playlist {
+    background-color: silver;
+    min-height: 30rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    font-weight: 600;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  .articles {
+    .back-btn {
+      display: flex;
+      align-items: center;
+      position: fixed;
+      left: 5rem;
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #525252;
+      cursor: pointer;
     }
 
-    .discussion {
-        font-weight: 600;
-        margin-bottom: 4rem;
-        font-size: 2rem;
+    .article-first {
+      font-size: 2.5rem;
+    }
 
-        p {
+    .main {
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+
+      .side-bar {
+        display: block;
+        margin-left: 4rem;
+        margin-top: 4rem;
+        position: relative;
+
+        .side-bar-head {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          position: fixed;
+          width: 20%;
+          .img-number {
+            text-align: end;
+            font-size: 1.4rem;
+
+            p {
+              margin-bottom: 0;
+              color: #8c8c8c;
+            }
+          }
+
+          .side-bar-slider {
+            //position: absolute;
+            //top: 21rem;
+            //margin: 4rem;
             display: flex;
             justify-content: center;
             align-items: center;
 
-            span {
-                display: flex;
-                cursor: pointer;
-
-                svg {
-                    fill: #8C8C8C;
-                }
+            .left-arrow {
+              margin-right: 1rem;
             }
-        }
 
-        .discussion-desktop {
-            display: none;
-        }
-    }
+            .right-arrow {
+              margin-left: 1rem;
+            }
 
-    .playlist {
-        background-color: silver;
-        min-height: 30rem;
+            div {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+
+              .img-sm {
+                width: 3rem;
+                height: 4rem;
+                background-color: green;
+              }
+
+              .active {
+                height: 5rem;
+                width: 5rem;
+              }
+            }
+          }
+        }
+        .article-link-main {
+          width: 100%;
+          .article-link-picture {
+            width: 100%;
+            height: 18rem;
+            background-color: green;
+            position: relative;
+            margin-bottom: 1rem;
+
+            //position: absolute;
+            .zoom-out {
+              position: absolute;
+              bottom: 0;
+              right: 0;
+              margin: 2rem;
+
+              svg {
+                fill: white;
+              }
+            }
+          }
+        }
+      }
+
+      .article-right {
         display: flex;
+        flex-direction: column;
         justify-content: center;
-        align-items: center;
-        font-size: 3rem;
-        font-weight: 600;
-    }
-}
-
-@media only screen and (min-width: 768px) {
-    .articles {
-        .back-btn {
+        padding: 0 7rem;
+        .article-main {
+          .btn-play-list {
             display: flex;
-            align-items: center;
-            position: absolute;
-            left: 3rem;
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: #525252;
-            cursor: pointer;
-        }
+          }
 
-        .article-first {
-            font-size: 2.5rem;
-        }
-
-        .main {
-            display: grid;
-            grid-template-columns: 1fr 3fr;
-
-            .side-bar {
-                display: block;
-                margin-left: 4rem;
-                margin-top: 4rem;
-                position: relative;
-
-                .side-bar-head {
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: center;
-                    position: fixed;
-                    width: 20%;
-                    .img-number {
-                        text-align: end;
-                        font-size: 1.4rem;
-
-                        p {
-                            margin-bottom: 0;
-                            color: #8C8C8C;
-                        }
-                    }
-
-                    .side-bar-slider {
-                        //position: absolute;
-                        //top: 21rem;
-                        //margin: 4rem;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-
-                        .left-arrow {
-                            margin-right: 1rem;
-                        }
-
-                        .right-arrow {
-                            margin-left: 1rem;
-                        }
-
-                        div {
-                            display: flex;
-                            justify-content: center;
-                            align-items: center;
-
-                            .img-sm {
-                                width: 3rem;
-                                height: 4rem;
-                                background-color: green;
-                            }
-
-                            .active {
-                                height: 5rem;
-                                width: 5rem;
-                            }
-                        }
-
-                    }
-                }
-                .article-link-main{
-                    width: 100%;
-                    .article-link-picture {
-                        width: 100%;
-                        height: 18rem;
-                        background-color: green;
-                        position: relative;
-                        margin-bottom: 1rem;
-    
-                        //position: absolute;
-                        .zoom-out {
-                            position: absolute;
-                            bottom: 0;
-                            right: 0;
-                            margin: 2rem;
-    
-                            svg {
-                                fill: white
-                            }
-                        }
-                    }
-                }
-
+          .article-main-title {
+            h1 {
+              font-size: 6rem;
             }
 
-            .article-right {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                padding: 0 7rem;
-                .article-main {
-                    .btn-play-list {
-                        display: flex;
-                    }
+            div {
+              display: flex;
 
-                    .article-main-title {
-                        h1 {
-                            font-size: 6rem;
-                        }
+              p:first-child {
+                margin-right: 1rem;
+              }
+            }
+          }
 
-                        div {
-                            display: flex;
+          .article-main-main .article-link .article-link-picture {
+            display: none;
+          }
+        }
 
-                            p:first-child {
-                                margin-right: 1rem;
-                            }
-                        }
-                    }
+        .discussion-playlist {
+          width: 100%;
+          display: flex;
+          flex-direction: column-reverse;
 
-                    .article-main-main .article-link .article-link-picture {
-                        display: none;
-                    }
-                }
-
-                .discussion-playlist {
-                    width: 100%;
-                    display: flex;
-                    flex-direction: column-reverse;
-
-                    .discussion {
-                        span {
-                            display: none;
-                        }
-
-                        .discussion-desktop {
-                            display: block;
-                            border: 2px solid black;
-                            height: 30rem;
-                        }
-                    }
-                }
+          .discussion {
+            span {
+              display: none;
             }
 
+            .discussion-desktop {
+              display: block;
+              border: 2px solid black;
+              height: 30rem;
+            }
+          }
         }
+      }
     }
+  }
 }
 
 @media only screen and (min-width: 1280px) {
-    .articles .main .side-bar .article-link-main .article-link-picture{
-        height: 18rem;
-    }
+  .articles .main .side-bar .article-link-main .article-link-picture {
+    height: 18rem;
+  }
 }
 
-
 @media only screen and (min-width: 1760px) {
-    .articles .main .side-bar .article-link-main .article-link-picture{
-        height: 24rem;
-    }
+  .articles .main .side-bar .article-link-main .article-link-picture {
+    height: 24rem;
+  }
 }
