@@ -20,7 +20,7 @@ function Login({handleChange,details}){
         <label className='label-text-field' for='password'>Password  :</label>
         <input id='password' name='password' value={details.password} style={{marginLeft:'25px'}} onChange={e => handleChange(e)} type='password' className='login-text-field' />
         </div>
-        <Button variant='contained' color='primary'>Login</Button>
+        <Button variant='contained' color='primary' className='login-btn'>Login</Button>
         <br/>
         <br/>
         <Typography variant='h6'>Or</Typography>
