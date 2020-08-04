@@ -1,6 +1,5 @@
 .signup{
-    position: absolute;
-    height: 100%;
+    height: 100vh;
     width: 100%;
     letter-spacing: 2px;
     background-image: url('https://cdn.discordapp.com/attachments/729766710621634762/738449110155264000/image_1.png');
@@ -49,6 +48,8 @@
         }
     }
 }
+
+
 
 @media only screen and (min-width: 768px){
     .signup{
