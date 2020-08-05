@@ -1,14 +1,15 @@
 .signup{
-    margin-top: 64px;
-    height: 36.75rem;
+    height: 100vh;
     width: 100%;
     letter-spacing: 2px;
+    background-image: url('https://cdn.discordapp.com/attachments/729766710621634762/738449110155264000/image_1.png');
     .signup-main{
         height: 100%;
         width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
+        transform: translateY(-8rem);
         form{
             background-color: black;
             color: white;
@@ -48,9 +49,12 @@
     }
 }
 
+
+
 @media only screen and (min-width: 768px){
     .signup{
         .signup-main{
+            transform: translateY(0rem);
             form{
                 padding: 1rem 2.25rem;
                 .input-div{
