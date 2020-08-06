@@ -34,7 +34,7 @@ function Navbar() {
                 color="inherit"
                 aria-label="menu"
               >
-                {open ? <CloseIcon /> : <MenuIcon />}
+                {open ? <CloseIcon style={{ fontSize: 32 }}/> : <MenuIcon style={{ fontSize: 32 }}/>}
               </IconButton>
             </div>
           </Toolbar>
