@@ -7,6 +7,7 @@ import { MuiThemeProvider, createMuiTheme, CssBaseline } from '@material-ui/core
 import Editor from './Components/Editor/editor-component';
 import Article from './Components/Article/article-component';
 import Login from './Pages/Login/Login-page';
+import Signup from './Components/Signup/Signup-component';
 import SourceSansPro from './fonts/SourceSansPro-Regular.ttf';
 import SourceSansProSemiBold from './fonts/SourceSansPro-SemiBold.ttf';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
@@ -58,6 +59,7 @@ function App() {
             <Route path='/editor' exact component={ Editor } />
             <Route path='/article' exact component={ Article } />
             <Route path='/login' exact component={ Login } />
+            <Route path='/signup' exact component={ Signup } />
           </Switch>
           <Footer />
         </div>

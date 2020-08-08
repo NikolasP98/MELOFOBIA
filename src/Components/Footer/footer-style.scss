@@ -1,12 +1,15 @@
 .footer {
   //height: 70px;
-  margin-top: 20px;
+  //margin-top: 20px;
   display: flex;
   grid-template-columns: 100px 100px 200px;
   background-color: black;
   color: white;
   justify-content: space-between;
   padding: 10px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
   align-items: center;
 
   .item {
@@ -27,15 +30,15 @@
   .secondary-item {
     display: flex;
     //grid-template-columns: 20px 170px;
-    .icons{
+    .icons {
       display: flex;
       flex-direction: column;
     }
   }
 
   .logo {
-    height: 40px;
-    width: 40px;
+    height: 20px;
+    width: 20px;
     vertical-align: middle;
   }
 }
