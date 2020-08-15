@@ -1,0 +1,29 @@
+.fan-favourites-container{
+  width:60%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  .fan-favourites-carousel{
+    display: flex;
+    justify-content: center;
+    .arrow-btn{
+      &:hover{
+        background-color: transparent!important;
+      }
+    }
+  }
+
+  .fan-favourites-info{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+
+    .post-category{
+      font-size: 25px;
+      background-color: #E71D36;
+      color:white;
+      padding: 0 5px 0 5px;
+    }
+  }
+}

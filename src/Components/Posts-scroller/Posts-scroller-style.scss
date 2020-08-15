@@ -1,0 +1,10 @@
+.post-scroller-container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  .arrow-btn{
+    &:hover{
+      background-color: transparent;
+    }
+  }
+}
