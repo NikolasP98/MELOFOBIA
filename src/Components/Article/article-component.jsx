@@ -7,13 +7,14 @@ import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 import { dbPostRef, dbUserPublicRef } from "../../constants";
+import { UserPublic, Post } from "../../models/models";
 
 class Article extends React.Component {
 
   constructor(props, context) {
     super(props, context);
     this._isMounted = false;
-    this.postRef = dbPostRef.doc("WLVn9PD56M6egRW8Sn8A")// firestore().collection("post").doc("WLVn9PD56M6egRW8Sn8A")
+    this.postRef = dbPostRef.doc("WLVn9PD56M6egRW8Sn8A")
     this.userRef = dbUserPublicRef;
     this.state = {
       isLoading: true,
@@ -27,9 +28,8 @@ class Article extends React.Component {
     this.postRef.get().then(postDoc => {
       this.userRef.doc(postDoc.data().authorId).get().then(userDoc => {
         this.setState({
-          postDate: postDoc.data().timestamp.toDate().toLocaleString(),
-          postData: postDoc.data(),
-          userData: userDoc.data()
+          postData: Post.fromDocument(postDoc.data()),
+          userData: UserPublic.fromDocument(userDoc.data())
         })
       })
     })
@@ -103,7 +103,7 @@ class Article extends React.Component {
                   <h1>{this.state.postData.title}</h1>
                   <div>
                     <p>autor: {this.state.userData.username}</p>
-                    <p>{this.state.postDate}</p>
+                    <p>{this.state.postData.timestamp}</p>
                   </div>
                 </div>
                 <div>
