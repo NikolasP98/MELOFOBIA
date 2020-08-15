@@ -4,7 +4,8 @@ import './App.css';
 import Navbar from './Components/Navbar/Navbar-component';
 import Footer from './Components/Footer/footer-component';
 import { MuiThemeProvider, createMuiTheme, CssBaseline } from '@material-ui/core';
-import Editor from './Components/Editor/editor-component';
+import Home from './Pages/Home/home-page';
+import Editor from './Pages/Editor/editor-page';
 import Article from './Components/Article/article-component';
 import Login from './Pages/Login/Login-page';
 import Signup from './Components/Signup/Signup-component';
@@ -56,6 +57,7 @@ function App() {
         <div>
           <Navbar />
           <Switch>
+          <Route path='/' exact component={ Home } />
             <Route path='/editor' exact component={ Editor } />
             <Route path='/article' exact component={ Article } />
             <Route path='/login' exact component={ Login } />
