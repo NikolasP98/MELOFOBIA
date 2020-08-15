@@ -6,15 +6,15 @@ import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
-import firebase from "../../firebase";
+import { dbPostRef, dbUserPublicRef } from "../../constants";
 
 class Article extends React.Component {
 
   constructor(props, context) {
     super(props, context);
     this._isMounted = false;
-    this.postRef = firebase.firestore().collection("post").doc("WLVn9PD56M6egRW8Sn8A")
-    this.userRef = firebase.firestore().collection("user");
+    this.postRef = dbPostRef.doc("WLVn9PD56M6egRW8Sn8A")// firestore().collection("post").doc("WLVn9PD56M6egRW8Sn8A")
+    this.userRef = dbUserPublicRef;
     this.state = {
       isLoading: true,
       postData: [],
