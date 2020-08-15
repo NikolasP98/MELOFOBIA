@@ -11,8 +11,8 @@ import { UserPublic, Post } from "../../models/models";
 
 class Article extends React.Component {
 
-  constructor(props, context) {
-    super(props, context);
+  constructor(props) {
+    super(props);
     this._isMounted = false;
     this.postRef = dbPostRef.doc("WLVn9PD56M6egRW8Sn8A")
     this.userRef = dbUserPublicRef;
@@ -23,16 +23,22 @@ class Article extends React.Component {
     }
   }
 
+  async getData() {
+    let postDoc = await this.postRef.get();
+    let post = Post.fromDocument(postDoc.data());
+
+    let userDoc = await this.userRef.doc(post.authorId).get();
+    let userPublic = UserPublic.fromDocument(userDoc.data());
+
+    this.setState({
+      postData: post,
+      userData: userPublic
+    })
+  }
+
   componentDidMount() {
     this._isMounted = true;
-    this.postRef.get().then(postDoc => {
-      this.userRef.doc(postDoc.data().authorId).get().then(userDoc => {
-        this.setState({
-          postData: Post.fromDocument(postDoc.data()),
-          userData: UserPublic.fromDocument(userDoc.data())
-        })
-      })
-    })
+    this.getData();
     if (this._isMounted) {
       this.isLoading = false;
     }
