@@ -13,6 +13,7 @@ function HomePage(){
         <FanFavourites/>
       </div>
       <div className='latest-posts-section'>
+        <div className='latest-post-main-container'>
         <Typography variant='h3' style={{width:'100%',fontWeight:'600'}}>Latest Posts</Typography>
         <div className='latest-post-container'>
         <Typography variant='h4' style={{fontWeight:'600'}}>NEWS</Typography>
@@ -25,6 +26,7 @@ function HomePage(){
         <div className='latest-post-container'>
         <Typography variant='h4' style={{fontWeight:'600'}}>CHRONICLES</Typography>
         <PostsScroller/>
+        </div>
         </div>
       </div>
     </div>
