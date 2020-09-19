@@ -36,3 +36,46 @@
 .post-container:hover:after {
   opacity:1;
 }
+
+
+.post-mosaic-container{
+  padding: 5px;
+  width:200px;
+  height:200px;
+  margin: 5px;
+  position: relative;
+  padding: 0;
+  cursor: pointer;
+transition: transform .2s;
+
+  &:hover{
+    box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transform: scale(1.2);
+    z-index: 9999;
+  }
+
+  .image{
+    width: 100%;
+    height:100%;
+    vertical-align:top;
+  }
+
+}
+
+
+.post-mosaic-container:after {
+  padding: 5px;
+  content: attr(data-content);
+  color:#fff;
+  position:absolute;
+  width:100%;
+   height:100%;
+  top:0; left:0;
+  background:rgba(0,0,0,0.3);
+  opacity:0;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+}
+.post-mosaic-container:hover:after {
+  opacity:1;
+}
