@@ -7,7 +7,38 @@
   .fan-favourites-carousel{
     display: flex;
     justify-content: center;
+    cursor: pointer;
+
+    .fan-favourites-post{
+      width:800px;
+      height: 480px;
+      position: relative;
+
+      .fan-favourites-image{
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .fan-favourites-post:after {
+      font-size: 30px;
+      font-weight: bold;
+      padding: 5px;
+      content: attr(data-content);
+      color:#fff;
+      position:absolute;
+      width:100%; height:100%;
+      top:0; left:0;
+      background:rgba(0,0,0,0.3);
+      opacity:0;
+      transition: all 0.5s;
+      -webkit-transition: all 0.5s;
+    }
+    .fan-favourites-post:hover:after {
+      opacity:1;
+    }
+
     .arrow-btn{
+      color: white;
       &:hover{
         background-color: transparent!important;
       }
@@ -18,7 +49,7 @@
     width: 90%;
     display: flex;
     justify-content: space-between;
-
+    margin-bottom: 10px;
     .post-category{
       font-size: 25px;
       background-color: #E71D36;

@@ -20,6 +20,9 @@ function FanFavourites(){
     if(startIndex!==0){
       setStartIndex(prevValue => prevValue-1);
       setEndIndex(prevValue => prevValue-1);
+    }else{
+      setStartIndex(images.length-1);
+      setEndIndex(images.length);
     }
   };
 
@@ -27,6 +30,9 @@ function FanFavourites(){
     if(endIndex!==images.length){
       setStartIndex(prevValue => prevValue+1);
       setEndIndex(prevValue => prevValue+1);
+    }else{
+      setStartIndex(0);
+      setEndIndex(1);
     }
   };
 
@@ -37,26 +43,30 @@ function FanFavourites(){
 
   return(
     <div className='fan-favourites-container'>
-      <div className='fan-favourites-info'>
+      <div style={{display:'flex',justifyContent:'center',width:'100%'}}>
         <Typography variant='h5' style={{textDecoration:'underline',color:'white'}}>Fan Favourites</Typography>
       </div>
     <div className='fan-favourites-carousel'>
       <IconButton className='arrow-btn' button onClick={handleBack}>
         <ArrowBackIosIcon/>
       </IconButton>
-        {images.slice(startIndex,endIndex).map(item =><img className='image1' alt='img1' width='800' height='480' src={item}/> )}
+      <div className='fan-favourites-post' data-content='Hello there!'>
+        {images.slice(startIndex,endIndex).map(item =>
+          <img  className='fan-favourites-image' alt='img1'  src={item}/>
+        )}
+        </div>
       <IconButton className='arrow-btn' button onClick={handleNext}>
         <ArrowForwardIosIcon/>
       </IconButton>
     </div>
     <div className='fan-favourites-info'>
       <div className='author-info'>
-        <Typography variant='h3'>ARTICLE TITLE</Typography>
-        <Typography variant='h6'>Author: author name</Typography>
+        <Typography variant='h3' style={{color:'white'}}>ARTICLE TITLE</Typography>
+        <Typography variant='h6' style={{color:'white'}}>Author: author name</Typography>
       </div>
       <div style={{width:'30%'}}>
       {images.map((item,index) =>
-        <FiberManualRecordIcon onClick={()=>changePage(index)} style={{width:endIndex===index+1?'20px':'10px',cursor:'pointer',marginRight:'10px'}}/>
+        <FiberManualRecordIcon onClick={()=>changePage(index)} style={{color:'white',width:endIndex===index+1?'20px':'10px',cursor:'pointer',marginRight:'10px'}}/>
       )}
       </div>
       <Typography  variant='subtitle2' ><span className='post-category'>News</span></Typography>

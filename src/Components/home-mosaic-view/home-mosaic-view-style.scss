@@ -1,0 +1,11 @@
+.mosaic-container{
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+
+  .mosaic-post{
+    &:hover{
+      width: 200px;
+    }
+  }
+}

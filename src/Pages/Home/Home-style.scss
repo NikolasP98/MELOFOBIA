@@ -2,12 +2,12 @@
   margin-top: 64px;
   .fan-favourites-section{
     width: 100%;
-    height: 40%;
+    height: 100vh;
     display: flex;
     justify-content:center;
     flex-wrap: wrap;
     padding: 20px;
-    background-color: #5C5C5C
+    background-color: black;
   }
 
   .latest-posts-section{
@@ -17,10 +17,25 @@
     flex-wrap: wrap;
     padding: 20px;
 
-    .latest-post-container{
-      width: 74.3%;
-      margin-top: 50px;
+    .latest-post-main-container{
+      width: 80%;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 20px;
+
+      .latest-post-title{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+      }
+      .latest-post-container{
+        width: 100%;
+        margin-top: 50px;
+      }
     }
+
+
 
   }
 }
