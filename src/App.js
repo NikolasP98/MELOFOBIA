@@ -9,8 +9,8 @@ import Editor from './Pages/Editor/editor-page';
 import Article from './Components/Article/article-component';
 import Login from './Pages/Login/Login-page';
 import Signup from './Components/Signup/Signup-component';
+import Error from './Components/Errors/Error';
 import SourceSansPro from './fonts/SourceSansPro-Regular.ttf';
-import SourceSansProSemiBold from './fonts/SourceSansPro-SemiBold.ttf';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 const sourceSansPro = {
@@ -62,6 +62,8 @@ function App() {
             <Route path='/article' exact component={ Article } />
             <Route path='/login' exact component={ Login } />
             <Route path='/signup' exact component={ Signup } />
+            <Route path='/403' exact render={() => <Error title={`ACCESS DENIED`} content={`The page you’re trying to reach needs special access! Reach out to an admin if you keep getting this error.`}/> } />
+            <Route path='*' exact render={() => <Error title={`Page not found`} content={`The page you’re trying to reach does not exist!`}/> } />
           </Switch>
           <Footer />
         </div>
